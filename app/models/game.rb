@@ -1,2 +1,3 @@
 class Game < ActiveRecord::Base
-end
+  has_many :reviews, as: :reviewable
+end #Game

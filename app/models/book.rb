@@ -1,2 +1,3 @@
 class Book < ActiveRecord::Base
-end
+  has_many :reviews, as: :reviewable
+end #Book

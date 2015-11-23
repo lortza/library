@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
+    <%= f.select :rating, Movie::RATING, prompt: "Pick One" %>
   </div>
   <div class="field">
     <%= f.label :release_date %><br>

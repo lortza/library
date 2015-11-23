@@ -1,2 +1,3 @@
 class Album < ActiveRecord::Base
-end
+  has_many :reviews, as: :reviewable
+end #Album

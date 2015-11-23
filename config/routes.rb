@@ -1,11 +1,25 @@
 Rails.application.routes.draw do
   get 'reviews/new'
 
-  resources :games
-  resources :albums
-  resources :books
-  resources :movies
+  resources :games do 
+    resources :reviews
+  end
+
+  resources :albums do 
+    resources :reviews
+  end
+
+  resources :books do 
+    resources :reviews
+  end
+
+  resources :movies do 
+    resources :reviews
+  end
+
   devise_for :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
