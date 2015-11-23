@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @reviewable.reviews.new(params[:review])
+    @review = @reviewable.reviews.new(review_params)
     if @review.save
       redirect_to @reviewable, notice: "Review created."
     else

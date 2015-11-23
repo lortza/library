@@ -1,0 +1,13 @@
+<% @reviews.order("created_at DESC").each do |review| %>
+  <div class="review">
+    <div class="buttons">
+    <%= link_to 'Delete', [@reviewable, review], method: :delete, data: { confirm: 'Are you sure you want to delete ' + review.name + "'s review? This action cannot be undone." } %>
+    </div> <!-- buttons -->
+
+    <p><span class="name"><%= review.name %></span> says (<%= time_ago_in_words(review.created_at) %> ago): </p>
+    <p class="quote">"<%= review.comment %>"</p>
+  </div>  <!-- quote -->
+
+<% end %>
+
+

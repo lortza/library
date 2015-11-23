@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @album.title %>
@@ -19,6 +17,12 @@
   <strong>Release date:</strong>
   <%= @album.release_date %>
 </p>
+
+<h2>Reviews</h2>
+<%= render "reviews/review" %>
+
+<h4>Leave a Review</h4>
+<%= render "reviews/form" %>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

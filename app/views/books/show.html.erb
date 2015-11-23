@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -17,8 +15,14 @@
 
 <p>
   <strong>Published date:</strong>
-  <%= @book.published_date %>
+  <%= @book.release_date %>
 </p>
+
+<h2>Reviews</h2>
+<%= render "reviews/review" %>
+
+<h4>Leave a Review</h4>
+<%= render "reviews/form" %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
