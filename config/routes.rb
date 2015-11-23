@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+
   resources :games
   resources :albums
   resources :books
