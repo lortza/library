@@ -1,35 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h1>Movies</h1>
+<%= link_to '+ New Movie', new_movie_path %>
 
-<h1>Listing Movies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Rating</th>
-      <th>Release date</th>
-      <th>Director</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.release_date %></td>
-        <td><%= movie.director %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <article class="movie">
+        <h2><%= movie.title %> <span class="release-date">(<%= movie.release_date %>)</span></h2>
+        <h3>Directred by <%= movie.director %></h3>
+        <p><%= movie.rating %> | <%= movie.description %></p>
+        <p><%= link_to 'Show', movie %> | <%= link_to 'Edit', edit_movie_path(movie) %> | <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure you want to delete #{movie.name}?' } %></p>
+        <hr>
+        </article>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
