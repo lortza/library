@@ -6,7 +6,10 @@
         <h2><%= game.title %> <span class="release-date">(<%= game.release_date %>)</span></h2>
         <h3><%= game.author %></h3>
         <p><%= game.description %></p>
-        <p><%= link_to 'Show', game %> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure you want to delete #{game.name}?' } %></p>
+        <p><%= link_to 'Show', game %> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure you want to delete #{game.name}?' } %> 
+        <% if current_user.present? %>
+        | <%= link_to "+ Add to My Media Library", user_games_path(:user_game => {game_id: game.id, user_id: current_user.id}), method: :post %>
+        <% end %></p>
         <hr>
         </article>
     <% end %>
