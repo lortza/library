@@ -6,7 +6,12 @@
         <h2><%= book.title %> <span class="release-date">(<%= book.release_date %>)</span></h2>
         <h3><%= book.author %></h3>
         <p><%= book.description %></p>
-        <p><%= link_to 'Show', book %> | <%= link_to 'Edit', edit_book_path(book) %> | <%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure you want to delete #{book.name}?' } %></p>
+        <p><%= link_to 'Show', book %> | 
+        <%= link_to 'Edit', edit_book_path(book) %> | 
+        <%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure you want to delete #{book.name}?' } %> 
+        <% if current_user.present? %>
+        | <%= link_to "+ Add to My Media Library", user_books_path(:user_book => {book_id: book.id, user_id: current_user.id}), method: :post %>
+        <% end %></p>
         <hr>
         </article>
     <% end %>
