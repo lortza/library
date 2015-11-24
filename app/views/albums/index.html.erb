@@ -6,7 +6,11 @@
         <h2><%= album.title %> <span class="release-date">(<%= album.release_date %>)</span></h2>
         <h3><%= album.band_name %></h3>
         <p><%= album.description %></p>
-        <p><%= link_to 'Show', album %> | <%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure you want to delete #{album.name}?' } %></p>
+        <p><%= link_to 'Show', album %> | <%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure you want to delete #{album.name}?' } %>  
+        <% if current_user.present? %>
+        | <%= link_to "+ Add to My Media Library", user_albums_path(:user_album => {album_id: album.id, user_id: current_user.id}), method: :post %>
+        <% end %>
+        </p>
         <hr>
         </article>
     <% end %>

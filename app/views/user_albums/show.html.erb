@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_album.user %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @user_album.album %>
+</p>
+
+<%= link_to 'Edit', edit_user_album_path(@user_album) %> |
+<%= link_to 'Back', user_albums_path %>
