@@ -1,3 +1,10 @@
+.row {
+  clear: both;
+  overflow: auto;
+  margin-bottom: 10px; 
+} /* .row */
+  
+
 article.album, article.movie, article.game, article.book {
   h2, h3 {
     margin: 0px; 

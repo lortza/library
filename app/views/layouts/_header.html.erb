@@ -1,5 +1,20 @@
-<header>
-  <nav>
-    Home | <%= link_to "Movies", movies_path %> | <%= link_to "Books", books_path %> | <%= link_to "Albums", albums_path %> | <%= link_to "Games", games_path %>
-  </nav>
-</header>
+  <header>
+  <h1>Library</h1>
+    <nav>
+      <%= link_to "Home", root_path %> |
+      Public: <%= link_to "Albums", albums_path %>,
+      <%= link_to "Books", books_path %>, 
+      <%= link_to "Games", games_path %>, 
+      <%= link_to "Movies", movies_path %> |
+
+      <% if current_user.present? %>
+        <%= link_to "My Media Library", page_mylibrary_path %> |  
+        <%= "Signed in as: #{current_user.email}" %> | 
+        <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign In", "/users/sign_in" %> | 
+        <%= link_to "Sign Up", '/users/sign_up' %>
+      <% end %>
+    </nav>
+    <hr>
+  </header>

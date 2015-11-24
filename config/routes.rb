@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  resources :user_movies
+  resources :user_games
+  resources :user_albums
+  resources :user_books
+  devise_for :users
+
+  root "page#home"
+  get 'page/home'
+
+  get 'page/about'
+
+  get 'page/mylibrary'
+
   get 'reviews/new'
 
   resources :games do 
@@ -17,7 +31,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  devise_for :users
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
