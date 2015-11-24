@@ -1,0 +1,28 @@
+// Place all the styles related to the Page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+article.album, article.movie, article.game, article.book {
+  h2, h3 {
+    margin: 0px; 
+  } /* h2, h3 */
+    
+  .release-date {
+     font-size: 50%;
+     font-weight: normal; 
+   } /* .release-date */
+      
+} /* article.album */
+
+
+.media-library {
+  article {
+    width: 20%;
+    float: left;
+    padding: 2%;
+     h2, h3, p {
+      margin: 0px; 
+    } /* h2, h3 */
+  } /* article */
+    
+} /* .media-library */

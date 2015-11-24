@@ -1,0 +1,48 @@
+<h1>My Media Library</h1>
+<p>This page lists all of the media I have.</p>
+
+<div class="media-library">
+  <div class="row">
+    <h2>Music Albums</h2>
+    <% current_user.albums.order("created_at DESC").each do |album| %>
+        <article>
+          <h3><%= link_to album.title, album %></h3>
+          <h4>by <%= album.band_name %></h4>
+          <p><%= truncate(album.description, length: 100) %></p>
+        </article>
+      <% end %>
+  </div> <!-- row -->
+    
+  <div class="row">
+    <h2>Books</h2>
+      <% current_user.books.order("created_at DESC").each do |book| %>
+        <article>
+          <h3><%= link_to book.title, book %></h3>
+          <h4>written by <%= book.author %></h4>
+          <p><%= truncate(book.description, length: 100) %></p>
+        </article>
+      <% end %>
+    </div> <!-- row -->
+
+  <div class="row">
+    <h2>Games</h2>
+      <% current_user.games.order("created_at DESC").each do |game| %>
+        <article>
+          <h3><%= link_to game.title, game %></h3>
+          <h4>created by <%= game.author %></h4>
+          <p><%= truncate(game.description, length: 100) %></p>
+        </article>
+      <% end %>
+    </div> <!-- row -->
+
+  <div class="row">
+    <h2>Movies</h2>
+      <% current_user.movies.order("created_at DESC").each do |movie| %>
+        <article>
+          <h3><%= link_to movie.title, movie %></h3>
+          <h4>directed by <%= movie.director %></h4>
+          <p><%= truncate(movie.description, length: 100) %></p>
+        </article>
+      <% end %>
+    </div> <!-- row -->
+</div> <!-- media-library -->
